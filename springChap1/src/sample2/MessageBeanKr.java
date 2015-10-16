@@ -1,4 +1,4 @@
-package sample1;
+package sample2;
 
 public class MessageBeanKr implements MessageBean{
 
