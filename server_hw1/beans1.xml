@@ -10,6 +10,6 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id = "connection" class = "p1.AccessConnectionMaker">
+	<bean id = "connection" class = "p1.MySQLConnectionMaker">
 	</bean>
 </beans>
