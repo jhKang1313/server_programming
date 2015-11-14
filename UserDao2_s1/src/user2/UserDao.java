@@ -4,8 +4,6 @@ import java.sql.*;
 
 public class UserDao {
 	ConnectionMaker connMaker ;
-//	UserDao2 () {
-//		connMaker = new NConnectionMaker() ;
 	UserDao (ConnectionMaker connMaker) {
 		this.connMaker = connMaker ;
 	}

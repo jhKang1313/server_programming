@@ -9,7 +9,11 @@ public class UserDaoTest {
 		t1 = udao.getUser("jssong") ;
 		System.out.println(t1.name) ;
 		System.out.println(t1.getPassword()) ;
-		
+		User t2 = new User();
+		t2.name = "jh";
+		t2.id = "jhKang";
+		t2.password ="23";
+		udao.addUser(t2);
 	}
 
 }

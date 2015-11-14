@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     
-    <bean id="messageBean" class="sample2.MessageBeanKr" >  <!-- messageBean은 sample2 package의 MessageBeanKr를 사용 -->
+    <bean id="messageBean" class="sample2.MessageBeanEn" >  <!-- messageBean은 sample2 package의 MessageBeanKr를 사용 -->
 	</bean>
 </beans>
