@@ -12,10 +12,5 @@ public class FileOutputter{
 		FileWriter out = new FileWriter(filePath);
 		out.write(msg);
 		out.close();
-	}
-	public static void main(String[] args) throws IOException{
-		FileOutputter fout = new FileOutputter();
-		fout.output("Hello spring!!\n");
-	}
-	
+	}	
 }

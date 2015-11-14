@@ -1,15 +1,11 @@
 package p4;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.FileSystemResource;
-
-public class HelloTest {
-
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+public class Main {
 	public static void main(String[] args) {
-		BeanFactory factory = new XmlBeanFactory(new FileSystemResource("bean4.xml")) ;
-		MessageBean bean = factory.getBean("messageBean", MessageBean.class);
-		bean.sayHello();
-		
+		ApplicationContext context = new AnnotationConfigApplicationContext(MessageFactory.class);
+		MessageBean message = context.getBean("messageBean", MessageBean.class);
+		message.sayHello();
 	}
 }

@@ -3,7 +3,6 @@ package p4;
 import java.io.IOException;
 
 public class MessageBeanImpl implements MessageBean {
-
 	private String name ;
 	private String greeting ;
 	private FileOutputter output;
@@ -25,9 +24,8 @@ public class MessageBeanImpl implements MessageBean {
 	public void setGreeting(String greeting) {
 		this.greeting = greeting;
 	}
-
 	public void sayHello(){
-		String message = greeting + name + "!!";
+		String message = greeting +", " + name + "!!";
 		System.out.println(message);
 		try{
 		output.output(message);
