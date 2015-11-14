@@ -10,8 +10,8 @@ public class Main {
 		BeanFactory beanFactory= new XmlBeanFactory(new FileSystemResource("bean1.xml"));
 		UserDao userDao = beanFactory.getBean("userDao", UserDao.class);
 		
-		userDao.findUser("jssong").showData();		//Å½»ö
-		//userDao.addUser(new User("°­ÁøÇõ", "jhKang1313", "1234"));	//»ðÀÔ
-		//userDao.findUser("jhKang1313").showData();	//Å½»ö
+		userDao.findUser("jssong").showData();						//Å½»ö
+		userDao.addUser(new User("°­ÁøÇõ", "jhKang1313", "1234"));	//»ðÀÔ
+		userDao.findUser("jhKang1313").showData();					//Å½»ö
 	}
 }
