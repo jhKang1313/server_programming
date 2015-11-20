@@ -1,4 +1,4 @@
-package user2;
+package user22;
 
 public class User {
 		public String id ;

@@ -1,13 +1,11 @@
-package user2;
+package user22;
 
 import java.sql.*;
 
-public class UserDao2 {
-	ConnectionMaker connMaker ;
-//	UserDao2 () {
-//		connMaker = new NConnectionMaker() ;
-	UserDao2 (ConnectionMaker connMaker) {
-		this.connMaker = connMaker ;
+public class UserDao {
+	SimpleConnection connMaker ;
+	UserDao () {
+		connMaker = new SimpleConnection() ;
 	}
 	
 	public void addUser (User user) throws ClassNotFoundException, SQLException {
@@ -44,6 +42,14 @@ public class UserDao2 {
 		con.close();
 		
 		return user ;
+	}
+	public static void main (String[] args) throws ClassNotFoundException, SQLException {
+		UserDao udao = new UserDao() ;
+		User t1 = new User() ; 
+		t1 = udao.getUser("jssong") ;
+		System.out.println(t1.name) ;
+		System.out.println(t1.getPassword()) ;
+		
 	}
 		
  	
