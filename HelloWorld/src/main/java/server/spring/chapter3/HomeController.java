@@ -101,4 +101,50 @@ public class HomeController {
 		request.setAttribute("articleList", articles) ;
 		return "artList";	//보여줄 jsp 파일 이름
 	}
+	void showPageX(int index){
+		int noTotalArticles = 0;
+		Connection con = null;
+		String sError = "Success";
+		int count = 0;
+		try{
+			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver"); 
+			String url = "jdbc:ucanaccess://C:/CS-Board2003.mdb";
+			con = DriverManager.getConnection(url);
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery("select subject, name, created, hit, id from bbs_studypds");
+			for(int i = 0 ; i < index * 10 ; i++)
+				rs.next();
+			for(int i = 0 ; i < 10 && rs.next() ; i++){
+				String sDate = "";
+				sDate += rs.getObject("created");
+				int ndx = sDate.indexOf("00:");
+				Article article = new Article();
+				article.setKey(rs.getInt("id"));
+				article.setArticleTitle(rs.getString("subject"));
+				article.setArticleAuthor(rs.getString("name"));
+				article.setArticleDate(sDate.substring(0, ndx));
+				article.setHitCount(rs.getInt("hit"));
+				articles.add(article); 
+				count++;
+			}
+			int i = 0 ;
+			for(Article article : articles){
+				article.setArticleNumber(count - i);
+				i++;
+			}
+	
+			noTotalArticles = count;
+			rs.close();
+			st.close();
+			con.close();
+		}
+		catch(SQLException e){
+			sError = "Error on sqlDB";
+		}
+		catch(Exception e){
+			sError = "Error on DB";
+		}
+
+		
+	}
 }
