@@ -43,11 +43,17 @@
 			for(Article article : articles){
 				out.print("<tr>") ;
 				out.print("<td>" + article.getArticleNumber() + "</td>") ;
-				out.print("<td>" + article.getArticleTitle() + "</td>") ;
-				out.print("<td>" + article.getArticleAuthor() + "</td>") ;
-				out.print("<td>" + article.getArticleDate() + "</td>") ;
-				out.print("<td>" + article.getHitCount() + "</td>") ;
-				out.print("</tr>") ;
+				//String sHref = "";
+				//sHref += "<a href = 'contents.jsp?idx=" + article.getKey() + "'>";
+				//out.print("<td>" + sHref + article.getArticleTitle() + "</a></td>") ;
+				String sHref = "";
+				sHref += "<a href='contents?idx=" + article.getKey() + "'>";
+				out.print("<td>" + sHref + "");
+				out.print(article.getArticleTitle() + "</a> </td>") ;
+				out.print("<td>" + article.getArticleAuthor() + "</td>");
+				out.print("<td>" + article.getArticleDate() + "</td>");
+				out.print("<td>" + article.getHitCount() + "</td>");
+				out.print("</tr>");
 			}
 		%>
 	</table>

@@ -1,11 +1,19 @@
 package server.spring.chapter3;
 
 public class Article {
+	private int key;
+	
 	private int articleNumber;
 	private String articleTitle;
 	private String articleAuthor;
 	private String articleDate;
 	private int hitCount;
+	public int getKey() {
+		return key;
+	}
+	public void setKey(int key) {
+		this.key = key;
+	}
 	public int getArticleNumber() {
 		return articleNumber;
 	}

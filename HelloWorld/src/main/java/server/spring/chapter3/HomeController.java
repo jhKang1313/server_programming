@@ -44,7 +44,11 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+	@RequestMapping(value = "/contents", method = RequestMethod.GET)
+	public String contents(Locale locale, Model model) {
+		return "contents";
+
+	}
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String artList(Locale locale, Model model, HttpServletRequest request) {	//HttpServletRequest param 추가
 		int noTotalArticles = 0;
@@ -56,34 +60,28 @@ public class HomeController {
 			String url = "jdbc:ucanaccess://C:/CS-Board2003.mdb";
 			con = DriverManager.getConnection(url);
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("select subject, name, created, hit from bbs_studypds");
+			ResultSet rs = st.executeQuery("select subject, name, created, hit, id from bbs_studypds");
 			while(rs.next()){			//게시물 개수 파악
 				if(count < 10){
+					String sDate = "";
+					sDate += rs.getObject("created");
+					int ndx = sDate.indexOf("00:");
 					Article article = new Article();
+					article.setKey(rs.getInt("id"));
 					article.setArticleTitle(rs.getString("subject"));
 					article.setArticleAuthor(rs.getString("name"));
-					article.setArticleDate(rs.getString("created"));
+					article.setArticleDate(sDate.substring(0, ndx));
 					article.setHitCount(rs.getInt("hit"));
-					articles.add(article);
+					articles.add(article); 
 				}
 				count++;
 			}
-	/*		Article article = new Article();
-			article.setArticleNumber(1142);
-			article.setArticleTitle("운영체제 5장");
-			article.setArticleAuthor("정경원");
-			article.setArticleDate("2006-10-18");
-			article.setHitCount(35);
-			articles.add(article);
-			
-			article = new Article();
-			article.setArticleNumber(1141);
-			article.setArticleTitle("운영체제 4장");
-			article.setArticleAuthor("정경원");
-			article.setArticleDate("2006-10-17");
-			article.setHitCount(2);
-			articles.add(article);
-	*/		
+			int i = 0 ;
+			for(Article article : articles){
+				article.setArticleNumber(count - i);
+				i++;
+			}
+	
 			noTotalArticles = count;
 			rs.close();
 			st.close();
