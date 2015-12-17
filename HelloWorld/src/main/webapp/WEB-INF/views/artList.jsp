@@ -43,6 +43,7 @@
 			for(Article article : articles){
 				out.print("<tr>") ;
 				out.print("<td>" + article.getArticleNumber() + "</td>") ;
+				
 				//String sHref = "";
 				//sHref += "<a href = 'contents.jsp?idx=" + article.getKey() + "'>";
 				//out.print("<td>" + sHref + article.getArticleTitle() + "</a></td>") ;

@@ -46,6 +46,7 @@ public class HomeController {
 
 		return "home";
 	}
+	
 	@RequestMapping(value = "/contents", method = RequestMethod.GET)
 	public String contents(Locale locale, Model model) {
 		return "contents";
