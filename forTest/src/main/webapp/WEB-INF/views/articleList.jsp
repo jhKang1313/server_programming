@@ -9,7 +9,7 @@
 <title>나의 게시판</title>
 </head>
 <body>
-	<form action = "notice" method = "get">
+	<form action = "notice" method = "get" accept-charset="UTF-8">
 		<select name="search_type">
 			<option value="subject">제목</option>
 			<option value="name">글쓴이</option>
