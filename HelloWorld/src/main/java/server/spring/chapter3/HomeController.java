@@ -53,8 +53,14 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String artList(Locale locale, Model model, HttpServletRequest request) {	//HttpServletRequest param 추가
-		initListPage() ;
-		showPageX(113) ;
+		int ndxPage = 0 ;
+		if (request.getParameter("first") != null) {
+			initListPage() ;
+		}
+		if (request.getParameter("page") != null) {
+			ndxPage = Integer.parseInt(request.getParameter("page"));
+		}
+		showPageX(ndxPage) ;
 		model.addAttribute("strError", sError);
 		model.addAttribute("noTotalArticles", noTotalArticles);	//${noTotalArticles}에 값을 준다.
 		model.addAttribute("noPages", noPapges);
