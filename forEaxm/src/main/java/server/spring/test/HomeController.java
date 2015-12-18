@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,6 +73,9 @@ public class HomeController {
 		articleCount = 0;
 		pageCount = 0;
 		try{
+			/*BeanFactory factory = new XmlBeanFactory(new FileSystemResource("beans.xml"));
+			ConnectionMaker connection = factory.getBean("connectionMaker", ConnectionMaker.class);
+			Connection con = connection.getConnection();*/
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			String url = "jdbc:ucanaccess://C:/CS-Board2003.mdb";
 			Connection con = DriverManager.getConnection(url);

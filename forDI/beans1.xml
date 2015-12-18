@@ -4,12 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id = "userDao" class = "test.UserDao">
-		<constructor-arg>
-			<ref local = "connection"></ref>
-		</constructor-arg>
-	</bean>
-	
 	<bean id = "connection" class = "test.MySQLConnectionMaker">
 	</bean>
+
 </beans>

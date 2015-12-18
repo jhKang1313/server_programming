@@ -11,8 +11,8 @@ public class UserDao {
 	Connection connection;
 	PreparedStatement ps;
 	ResultSet rs;
-	public UserDao(ConnectionMaker connectionMaker) throws ClassNotFoundException, SQLException{
-		this.connection = connectionMaker.getConnection();
+	public UserDao(test.ConnectionMaker connection2) throws ClassNotFoundException, SQLException{
+		this.connection = connection2.getConnection();
 	}
 	public void addUser(User user) throws ClassNotFoundException, SQLException{
 		ps = connection.prepareStatement("insert into users(id, name, password) values (?,?,?)");
