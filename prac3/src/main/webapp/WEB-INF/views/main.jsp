@@ -12,10 +12,6 @@
 </h1>
 	
 	<form action = "list" method = "get" accept-charset="UTF-8">
-		<select name="orient">
-			<option value="up">오름차순</option>
-			<option value="down">내림차순</option>
-		</select>
 		<select name="article_count">
 			<option value="five">5</option>
 			<option value="ten">10</option>

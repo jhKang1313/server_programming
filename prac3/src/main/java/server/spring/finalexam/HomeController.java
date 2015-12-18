@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +37,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Locale locale, Model model, HttpServletRequest request) {
 		initArticle();
+		//ApplicationContext context = new AnnotationConfigApplicationContext(SortingFactory.class);
+		//String sortingMethod = (String)context.getBean("getSortingMethod", String.class);
 		
+		//System.out.println(sortingMethod);
+		   
 		model.addAttribute("pageCount", pageCount);
 		model.addAttribute("Error", Error);
 		return "main";
@@ -63,7 +69,6 @@ public class HomeController {
 				articles.add(newArticle);
 				articleCount++;
 			}
-			//pageCount = (articleCount + 9) / 10;
 			con.close();
 			ps.close();
 			rs.close();
